@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 const QuickPriceCheck: React.FC = () => {
   return (
     <div>
-      <div className=" bg-[#f3f7fb] py-10">
+      <div className=" bg-[#f3f7fb] py-14">
         <div className="container mx-auto">
           <div>
             <h2 className="text-[26px] lg:text-[40px] text-center mb-6 lg:mb-14">

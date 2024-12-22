@@ -3,6 +3,7 @@ import FrequentlyQuestions from "@/Components/FrequentlyQuestions/FrequentlyQues
 import LatestBlog from "@/Components/LatestBlog/LatestBlog";
 import OurSatisfiedClients from "@/Components/OurSatisfiedClients/OurSatisfiedClients";
 import QuickPriceCheck from "@/Components/QuickPriceCheck/QuickPriceCheck";
+import SpecialOffer from "@/Components/SpecialOffer/SpecialOffer";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <QuickPriceCheck />
       <OurSatisfiedClients />
       <FrequentlyQuestions />
+      <SpecialOffer />
       <LatestBlog />
     </div>
   );

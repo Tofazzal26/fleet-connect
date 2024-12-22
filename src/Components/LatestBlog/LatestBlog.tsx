@@ -1,3 +1,4 @@
+"use client";
 import LatestStyle from "./LatestStyle/LatestStyle.module.css";
 
 const LatestBlog = () => {

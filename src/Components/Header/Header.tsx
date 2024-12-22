@@ -95,7 +95,9 @@ const Header: React.FC = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <button className="bg-[#fee100] px-4 py-2 rounded-lg">Login</button>
+          <Link href="/api/login">
+            <button className="bg-[#fee100] px-4 py-2 rounded-lg">Login</button>
+          </Link>
         </div>
       </div>
     </div>

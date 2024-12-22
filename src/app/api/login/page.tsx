@@ -6,14 +6,20 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import Image from "next/image";
 import { useForm, SubmitHandler } from "react-hook-form";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setToken, setUser } from "@/app/loginSlice/loginSlice";
 
 const Login: React.FC = () => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
+  const token = useSelector((state: any) => state.login.token);
+  const user = useSelector((state: any) => state.login.user);
 
   type Inputs = {
-    email: string | any;
-    password: string | any;
+    email: string | number | any;
+    password: string | number | any;
   };
 
   const {
@@ -23,10 +29,29 @@ const Login: React.FC = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
     const email = data.email;
     const password = data.password;
-    console.log({ email, password });
+    console.log(email, password);
+    const resp = await axios.post(
+      `https://api.zsimarketing.com/api/auth/user/login`,
+      {
+        email,
+        password,
+      }
+    );
+
+    if (resp.data?.isError) {
+      toast.error("Login Failed! Please enter a valid email and password");
+    }
+
+    if (resp.data?.status_code === 200) {
+      const { token, user } = resp.data.data;
+      dispatch(setUser(user));
+      dispatch(setToken(token));
+      toast.success("Login success");
+      console.log(token, user);
+    }
   };
 
   return (

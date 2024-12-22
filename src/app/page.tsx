@@ -1,4 +1,5 @@
 import Banner from "@/Components/Banner/Banner";
+import FrequentlyQuestions from "@/Components/FrequentlyQuestions/FrequentlyQuestions";
 import OurSatisfiedClients from "@/Components/OurSatisfiedClients/OurSatisfiedClients";
 import QuickPriceCheck from "@/Components/QuickPriceCheck/QuickPriceCheck";
 
@@ -8,6 +9,7 @@ export default function Home() {
       <Banner />
       <QuickPriceCheck />
       <OurSatisfiedClients />
+      <FrequentlyQuestions />
     </div>
   );
 }

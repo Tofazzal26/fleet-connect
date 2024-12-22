@@ -6,9 +6,16 @@ const FrequentlyQuestions: React.FC = () => {
       <div className="container mx-auto">
         <div className="py-10">
           <div>
-            <h2 className="text-[26px] lg:text-[40px] text-center mb-6 lg:mb-14">
+            <h2 className="text-[26px] lg:text-[40px] text-center">
               Frequently Asked Questions for FleetConnect Service
             </h2>
+            <p className="mx-auto text-center lg:w-[700px] text-gray-600 lg:mb-14 mb-6">
+              At FleetConnect, our success is measured by the satisfaction of
+              our clients. We take immense pride in building lasting
+              relationships and delivering exceptional service that exceeds
+              expectations. Here's what some of our satisfied clients have to
+              say about their experiences
+            </p>
           </div>
           <div className="space-y-2">
             <div className="collapse bg-white collapse-plus">

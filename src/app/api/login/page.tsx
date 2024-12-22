@@ -5,15 +5,28 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import Image from "next/image";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 const Login: React.FC = () => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = async (event: any) => {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
+  type Inputs = {
+    email: string | any;
+    password: string | any;
+  };
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const email = data.email;
+    const password = data.password;
+    console.log({ email, password });
   };
 
   return (
@@ -24,7 +37,7 @@ const Login: React.FC = () => {
             <h1 className="text-center  text-lg md:text-xl my-4 md:my-10">
               LOGIN
             </h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <label className="text-gray-500">
                   Username or email address *
@@ -32,18 +45,30 @@ const Login: React.FC = () => {
                 <br />
                 <input
                   type="text"
-                  name="email"
+                  {...register("email", { required: true })}
                   className="md:py-[10px] py-2 mt-2 mb-4 px-3 w-full md:w-[400px] md:px-5 bg-[#f3f4f7] border-[1px]  outline-none rounded-none"
                 />
+                <br />
+                {errors.email && (
+                  <span className="text-red-500">
+                    This Email field is required...
+                  </span>
+                )}
               </div>
               <div className="relative">
                 <label className="text-gray-500">Password *</label>
                 <br />
                 <input
                   type={showPassword ? "text" : "password"}
-                  name="password"
+                  {...register("password", { required: true })}
                   className="md:py-[10px] py-2 mt-2 px-3 w-full md:w-[400px] md:px-5 bg-[#f3f4f7] border-[1px]  outline-none rounded-none"
                 />
+                <br />
+                {errors.email && (
+                  <span className="text-red-500">
+                    This Password field is required...
+                  </span>
+                )}
                 {showPassword ? (
                   <span
                     onClick={() => setShowPassword(!showPassword)}

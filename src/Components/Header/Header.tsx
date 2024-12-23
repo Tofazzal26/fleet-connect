@@ -1,14 +1,19 @@
 "use client";
+import { logOut } from "@/app/loginSlice/loginSlice";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Header: React.FC = () => {
   const activeNavbar = usePathname();
   const user = useSelector((state: any) => state.login.user);
   const token = useSelector((state: any) => state.login.token);
-  console.log(user, token);
+  const dispatch = useDispatch();
+
+  const handleLogOut = () => {
+    dispatch(logOut());
+  };
 
   return (
     <div className="shadow-NavShadow">
@@ -81,7 +86,7 @@ const Header: React.FC = () => {
               </ul>
             </ul>
           </div>
-          <Link href="/" className="btn btn-ghost text-[22px]">
+          <Link href="/" className="btn btn-ghost text-[16px] lg:text-[22px]">
             {" "}
             <Image src="/logo.png" height={60} width={60} alt="logo" />{" "}
             FleetConnect
@@ -136,7 +141,7 @@ const Header: React.FC = () => {
         <div className="navbar-end">
           {!user && !token ? (
             <Link href="/api/login">
-              <button className="bg-[#fee100] px-4 py-2 rounded-lg">
+              <button className="bg-[#fee100] lg:px-4 px-3 py-[6px] lg:py-2 rounded-lg">
                 Login
               </button>
             </Link>
@@ -168,7 +173,9 @@ const Header: React.FC = () => {
                     <a>{user?.email}</a>
                   </li>
                   <li>
-                    <a className="text-red-500">Logout</a>
+                    <button className="text-red-500" onClick={handleLogOut}>
+                      Logout
+                    </button>
                   </li>
                 </ul>
               </div>

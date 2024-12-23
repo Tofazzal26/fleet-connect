@@ -1,5 +1,5 @@
 "use client";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Fan } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -13,9 +13,8 @@ import { setToken, setUser } from "@/app/loginSlice/loginSlice";
 const Login: React.FC = () => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const token = useSelector((state: any) => state.login.token);
-  const user = useSelector((state: any) => state.login.user);
 
   type Inputs = {
     email: string | number | any;
@@ -25,14 +24,15 @@ const Login: React.FC = () => {
   const {
     register,
     handleSubmit,
+    reset,
     watch,
     formState: { errors },
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    setLoading(true);
     const email = data.email;
     const password = data.password;
-    console.log(email, password);
     const resp = await axios.post(
       `https://api.zsimarketing.com/api/auth/user/login`,
       {
@@ -46,11 +46,13 @@ const Login: React.FC = () => {
     }
 
     if (resp.data?.status_code === 200) {
+      reset();
       const { token, user } = resp.data.data;
       dispatch(setUser(user));
       dispatch(setToken(token));
       toast.success("Login success");
-      console.log(token, user);
+      setLoading(false);
+      router.push("/");
     }
   };
 
@@ -110,8 +112,19 @@ const Login: React.FC = () => {
                   </span>
                 )}
               </div>
-              <button className="bg-[#fee100] text-black text-lg w-full py-[10px] mt-4">
-                Login
+              <button
+                disabled={loading}
+                className="bg-[#fee100] text-black text-lg w-full py-[10px] mt-4"
+              >
+                {loading ? (
+                  <>
+                    <div className="flex justify-center items-center">
+                      <Fan size={25} className="animate-spin text-center" />
+                    </div>
+                  </>
+                ) : (
+                  "Login"
+                )}
               </button>
             </form>
             <div>

@@ -2,9 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSelector } from "react-redux";
 
 const Header: React.FC = () => {
   const activeNavbar = usePathname();
+  const user = useSelector((state: any) => state.login.user);
+  const token = useSelector((state: any) => state.login.token);
+  console.log(user, token);
 
   return (
     <div className="shadow-NavShadow">
@@ -45,10 +49,28 @@ const Header: React.FC = () => {
                   </Link>
                 </li>
                 <li>
-                  <a className="text-[16px]">Service</a>
+                  <Link
+                    href="/api/service"
+                    className={
+                      activeNavbar === "/api/service"
+                        ? "text-[16px] text-[#e7b97a]"
+                        : "text-[16px]"
+                    }
+                  >
+                    Service
+                  </Link>
                 </li>
                 <li>
-                  <a className="text-[16px]">Fleet</a>
+                  <Link
+                    href="/api/fleet"
+                    className={
+                      activeNavbar === "/api/fleet"
+                        ? "text-[16px] text-[#e7b97a]"
+                        : "text-[16px]"
+                    }
+                  >
+                    Fleet
+                  </Link>
                 </li>
                 <li>
                   <a className="text-[16px]">About</a>
@@ -80,10 +102,28 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
-              <a className="text-[16px]">Service</a>
+              <Link
+                href="/api/service"
+                className={
+                  activeNavbar === "/api/service"
+                    ? "text-[16px] text-[#e7b97a]"
+                    : "text-[16px]"
+                }
+              >
+                Service
+              </Link>
             </li>
             <li>
-              <a className="text-[16px]">Fleet</a>
+              <Link
+                href="/api/fleet"
+                className={
+                  activeNavbar === "/api/fleet"
+                    ? "text-[16px] text-[#e7b97a]"
+                    : "text-[16px]"
+                }
+              >
+                Fleet
+              </Link>
             </li>
             <li>
               <a className="text-[16px]">About</a>
@@ -94,9 +134,46 @@ const Header: React.FC = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link href="/api/login">
-            <button className="bg-[#fee100] px-4 py-2 rounded-lg">Login</button>
-          </Link>
+          {!user && !token ? (
+            <Link href="/api/login">
+              <button className="bg-[#fee100] px-4 py-2 rounded-lg">
+                Login
+              </button>
+            </Link>
+          ) : (
+            <>
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <Image
+                      src="/profile.png"
+                      alt="userImage"
+                      width={40}
+                      height={40}
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                >
+                  <li>
+                    <a>{user?.name}</a>
+                  </li>
+                  <li>
+                    <a>{user?.email}</a>
+                  </li>
+                  <li>
+                    <a className="text-red-500">Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

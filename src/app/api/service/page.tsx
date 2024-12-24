@@ -1,3 +1,5 @@
+"use client";
+
 const Service = () => {
   return (
     <div className="lg:my-[150px]">

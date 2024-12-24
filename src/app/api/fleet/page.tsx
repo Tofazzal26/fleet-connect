@@ -1,3 +1,4 @@
+"use client";
 const Fleet = () => {
   return (
     <div>

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import LatestStyle from "./LatestStyle/LatestStyle.module.css";
 
 const LatestBlog = () => {
@@ -23,9 +24,11 @@ const LatestBlog = () => {
                 <figure
                   className={`${LatestStyle.imageParent} lg:w-[450px] rounded-lg`}
                 >
-                  <img
+                  <Image
                     src="/blog1.jpg"
-                    alt="Shoes"
+                    alt=""
+                    width={450}
+                    height={300}
                     className={`rounded-xl ${LatestStyle.ImageAnimation} h-[300px]`}
                   />
                 </figure>
@@ -54,9 +57,11 @@ const LatestBlog = () => {
                 <figure
                   className={`${LatestStyle.imageParent} lg:w-[450px] rounded-lg`}
                 >
-                  <img
+                  <Image
                     src="/blog2.jpg"
-                    alt="Shoes"
+                    alt=""
+                    width={450}
+                    height={300}
                     className={`rounded-xl ${LatestStyle.ImageAnimation} h-[300px]`}
                   />
                 </figure>
@@ -85,9 +90,11 @@ const LatestBlog = () => {
                 <figure
                   className={`${LatestStyle.imageParent} lg:w-[450px] rounded-lg`}
                 >
-                  <img
+                  <Image
                     src="/blog3.jpg"
-                    alt="Shoes"
+                    alt=""
+                    width={450}
+                    height={300}
                     className={`rounded-xl ${LatestStyle.ImageAnimation} h-[300px]`}
                   />
                 </figure>

@@ -25,7 +25,6 @@ const Login: React.FC = () => {
     register,
     handleSubmit,
     reset,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
 

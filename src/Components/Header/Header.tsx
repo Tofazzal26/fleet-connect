@@ -3,6 +3,7 @@ import { logOut } from "@/app/loginSlice/loginSlice";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
 const Header: React.FC = () => {
@@ -13,6 +14,7 @@ const Header: React.FC = () => {
 
   const handleLogOut = () => {
     dispatch(logOut());
+    toast.success("LogOut Success");
   };
 
   return (

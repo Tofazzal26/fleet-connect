@@ -2,7 +2,8 @@
 
 FleetConnect is a streamlined web application designed to buy and sell cars efficiently. Built with modern technologies like Next.js, TypeScript, Tailwind CSS, Swiper Slider, and Lucide Icons, the platform offers a responsive and user-friendly experience for car enthusiasts, vendors, and buyers.  
 
-[Live Link: FleetConnect](https://fleet-connect.vercel.app)  
+
+### Live Link --> [FleetConnect](https://fleet-connect.vercel.app)
 
 ## Key Features  
 
@@ -25,4 +26,31 @@ Follow these steps to set up FleetConnect on your local machine:
 
 1. **Clone the Repository**  
    ```bash  
-   git clone <repository-url>  
+   git clone <repo-url>
+
+2. **Navigate to Project Directory**  
+   cd fleetconnect
+
+3. **Install Dependencies**
+   npm install
+   # or
+   yarn install
+
+4. **Run the Development Server**
+   npm run dev
+   # or
+   yarn dev
+
+
+
+If you have any feedback, please reach out to us at afranislamabir6789@gmail.com
+
+
+   
+
+
+
+
+
+
+   

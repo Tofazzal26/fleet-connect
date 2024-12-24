@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FleetConnect  
 
-## Getting Started
+FleetConnect is a streamlined web application designed to buy and sell cars efficiently. Built with modern technologies like Next.js, TypeScript, Tailwind CSS, Swiper Slider, and Lucide Icons, the platform offers a responsive and user-friendly experience for car enthusiasts, vendors, and buyers.  
 
-First, run the development server:
+[Live Link: FleetConnect](https://fleet-connect.vercel.app)  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Key Features  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Quick Price Check**: Instantly assess car values with accurate pricing tools.  
+- **Our Satisfied Clients**: Showcase testimonials and reviews from happy users.  
+- **Frequently Asked Questions**: Comprehensive answers to common queries about FleetConnect services.  
+- **Latest Blog Posts**: Stay updated with industry news, tips, and trends.  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js**: Ensures fast loading and server-side rendering for improved performance and SEO.  
+- **TypeScript**: Adds type safety and maintainability to the codebase.  
+- **Tailwind CSS**: Provides responsive and customizable designs.  
+- **Swiper Slider**: Creates interactive carousels for smooth navigation.  
+- **Lucide Icons**: Enhances the interface with modern and lightweight icons.  
 
-## Learn More
+## Installation  
 
-To learn more about Next.js, take a look at the following resources:
+Follow these steps to set up FleetConnect on your local machine:  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clone the Repository**  
+   ```bash  
+   git clone <repository-url>  

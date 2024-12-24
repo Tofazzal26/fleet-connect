@@ -28,17 +28,20 @@ Follow these steps to set up FleetConnect on your local machine:
    ```bash  
    git clone <repo-url>
 
-2. **Navigate to Project Directory**  
+2. **Navigate to Project Directory**
+   ```bash 
    cd fleetconnect
 
-3. **Install Dependencies**
+4. **Install Dependencies**
+    ```bash 
    npm install
-   # or
+   or
    yarn install
 
-4. **Run the Development Server**
+6. **Run the Development Server**
+    ```bash 
    npm run dev
-   # or
+   or
    yarn dev
 
 
